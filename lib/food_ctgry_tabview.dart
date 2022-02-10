@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'chat_screen.dart';
+
 class FoodCateTab extends StatefulWidget {
   const FoodCateTab({Key? key}) : super(key: key);
 
@@ -156,7 +158,7 @@ class _FoodCateTabState extends State<FoodCateTab> {
                   centerTitle: true,
                   leading: IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.menu),
+                    icon: Icon(Icons.arrow_back_ios),
                   ),
                   title: Text("${tabText.toUpperCase()}"),
                   bottom: PreferredSize(
@@ -236,6 +238,9 @@ class _FoodCateTabState extends State<FoodCateTab> {
                                       return Card(
                                         elevation: 2,
                                         child: ListTile(
+                                          onTap: (){
+                                            Navigator.push(context, MaterialPageRoute(builder: (context)=> ChatScreen()));
+                                          },
                                           trailing: addedCart[index] != 0
                                               ? Container(
                                                   margin:

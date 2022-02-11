@@ -2,6 +2,8 @@ import 'package:alakarte/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'introscreen.dart';
+
 void main() {
   runApp(MyApp());
   Color red = Color(0xffDB90000);
@@ -38,25 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: AppBar(
-        backgroundColor: red,
-        centerTitle: true,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text('a`la karte'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton
-              (onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> MyLogin()));
-            }, child: Text('Login')
-            )
-          ],
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: IntroScreen() // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -3,6 +3,8 @@ import 'package:alakarte/registerpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'login_screen.dart';
+
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -36,7 +38,7 @@ class _IntroScreenState extends State<IntroScreen> {
     super.initState();
      Color white = Color(0xffFFFFFF);
      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-         statusBarColor: white
+         statusBarColor: red
      ));
     _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
       if (slideIndex < 2) {
@@ -67,7 +69,7 @@ class _IntroScreenState extends State<IntroScreen> {
           body:Column(
               children: [
                 Container(
-                    height: MediaQuery.of(context).size.height-100,
+                    height: MediaQuery.of(context).size.height*0.9,
                     child:PageView(
                       controller: _controller,
                       onPageChanged: (index){
@@ -174,7 +176,9 @@ class _IntroScreenState extends State<IntroScreen> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:<Widget>[
-                  TextButton(onPressed: (){} ,
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginApp()));
+                  } ,
                       child: Text('Login',style: TextStyle(color: Colors.black,fontSize: 18),)
                   ),
                   TextButton(onPressed: (){

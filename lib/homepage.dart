@@ -29,136 +29,138 @@ class _HomePageState extends State<HomePage> {
         ) ,
       ),
       body: Container(
-          height:700,
+          height:MediaQuery.of(context).size.height*0.9,
         width: MediaQuery.of(context).size.width,
-        child:Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  color: grey, borderRadius: BorderRadius.circular(6)),
-              padding: EdgeInsets.only(left: 6,),
-              width: double.infinity,
-              alignment: Alignment.center,
-              height: 40,
-              margin: EdgeInsets.all(10),
-              child: TextFormField(
-                decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(5),
-                    hintText: "Search",
-                    border: InputBorder.none,
-                    suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.search,color: white,),
-                    )),
+        child:SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    color: grey, borderRadius: BorderRadius.circular(6)),
+                padding: EdgeInsets.only(left: 6,),
+                width: double.infinity,
+                alignment: Alignment.center,
+                height: 40,
+                margin: EdgeInsets.all(10),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(5),
+                      hintText: "Search",
+                      border: InputBorder.none,
+                      suffixIcon: IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.search,color: white,),
+                      )),
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-              child: Text('Hotel List',style: TextStyle(fontSize: 18),),
-            ),
-        SingleChildScrollView(
-            child: Container(
-            height: 580,
-          child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder:(BuildContext context, int index) {
-                    return Container(
-                      height: 120,
-                      width: 200,
-                      child:GestureDetector(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>MenuPage()));
-                        },
-                        child:Card(
-                          child: Row(
-                              children: [
-                                Container(
-                                  width:100,
-                                  height: 120,
-                                  child: Image(
-                                    image: AssetImage('assets/images/listimg3.jpeg'),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                child: Text('Hotel List',style: TextStyle(fontSize: 18),),
+              ),
+          SingleChildScrollView(
+              child: Container(
+              height: 580,
+            child: ListView.builder(
+                    itemCount: 5,
+                    itemBuilder:(BuildContext context, int index) {
+                      return Container(
+                        height: 150,
+                        child:GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>MenuPage()));
+                          },
+                          child:Card(
+                            child: Row(
+                                children: [
+                                  Container(
+                                    width:80,
+                                    height: 120,
+                                    child: Image(
+                                      image: AssetImage('assets/images/listimg3.jpeg'),
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  width: 252,
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                          child:Row(
+                                  Container(
+                                    width: 255,
+                                    padding: EdgeInsets.symmetric(horizontal: 10),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          padding:EdgeInsets.only(right:10),
-                                          child: Text('Hotel Annapoorna'),
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.all(3),
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(4),
-                                            border: Border.all(),
-                                          ),
-                                          child: CircleAvatar(
-                                            radius: 3,
-                                            backgroundColor: Colors.green,
-                                          ),
-                                        ),
+                                            child:Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
                                           Container(
-                                            padding: EdgeInsets.only(left: 6),
-                                            child: SizedBox(
-                                            height:15,
-                                            width: 89,
-                                            child: CustomPaint(
-                                              painter: PriceTagPaint(),
-                                              child: Center(
-                                                child: Text(
-                                                  "Chettinadfood",
-                                                  style: TextStyle(
-                                                    fontSize: 10,
+                                            child: Text('Hotel Annapoorna',style: TextStyle(fontSize: 13)),
+                                          ),
+                                          Container(
+                                            padding: EdgeInsets.all(3),
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(4),
+                                              border: Border.all(),
+                                            ),
+                                            child: CircleAvatar(
+                                              radius: 3,
+                                              backgroundColor: Colors.green,
+                                            ),
+                                          ),
+                                            Expanded(
+                                              child: Container(
+                                                color: red,
+                                                child: SizedBox(
+                                                height:15,
+                                                width: 89,
+                                                child: CustomPaint(
+                                                  painter: PriceTagPaint(),
+                                                  child: Center(
+                                                    child: Text(
+                                                      "Chettinadfood",
+                                                      style: TextStyle(
+                                                        fontSize: 9,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
+                                              )
                                               ),
-                                            ),
-                                          )
-                                          )
-                                      ],
-                                     )
-                                      ),
-                                      Container(
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                padding:EdgeInsets.only(right:6),
-                                                child: Icon(
-                                                  Icons.star,size: 19,color: Colors.yellow,
+                                            )
+                                        ],
+                                       )
+                                        ),
+                                        Container(
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  child: Icon(
+                                                    Icons.star,size: 19,color: Colors.yellow,
+                                                  ),
                                                 ),
-                                              ),
-                                              Container(child: Text('4.5'),)
+                                                Container(child: Text('4.5'),)
 
-                                            ],
-                                          )
-                                      ),
-                                     Divider(color: black,),
-                                      Container(
-                                          child: Text('125/R.S.Puram,Coimbatore,TamilNadu 641002')
-                                      ),
-                                    ],
-                                  ),
-                                )
+                                              ],
+                                            )
+                                        ),
+                                       Divider(color: black,),
+                                        Container(
+                                            child: Text('125/R.S.Puram,Coimbatore,TamilNadu 641002',style: TextStyle(fontSize: 13),)
+                                        ),
+                                      ],
+                                    ),
+                                  )
 
-                              ]
-                          )
+                                ]
+                            )
 
-                      ),
-                    )
-                    );
-                  }
-              )
+                        ),
+                      )
+                      );
+                    }
+                )
+            )
           )
-        )
-          ]
+            ]
+          ),
         )
       )
     );

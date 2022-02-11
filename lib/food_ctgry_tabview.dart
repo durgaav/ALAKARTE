@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'cart_screen.dart';
 import 'chat_screen.dart';
 
 class FoodCateTab extends StatefulWidget {
@@ -578,7 +579,7 @@ class _FoodCateTabState extends State<FoodCateTab> {
                   Expanded(
                       child:GestureDetector(
                         onTap: (){
-                          print("hiii");
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
                         },
                         child: Container(
                             child: Container(
@@ -588,7 +589,7 @@ class _FoodCateTabState extends State<FoodCateTab> {
                                   Text('Proceed to cart',style: TextStyle(color: white,fontWeight: FontWeight.bold)),
                                   IconButton(
                                       onPressed: (){
-                                        print("hiii");
+                                        Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
                                       },
                                       icon: Icon(Icons.arrow_forward,size: 28.0,color: white,)
                                   )

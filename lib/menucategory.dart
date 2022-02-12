@@ -49,7 +49,6 @@ class _MenuCategoryState extends State<MenuCategory> {
                         height:110,
                         child: Image(
                              image: new AssetImage('assets/images/food1.jpeg'),fit: BoxFit.cover,
-
                         ),
                       ),
                       Container(

@@ -10,6 +10,7 @@ void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: red
   ));
+  // WidgetsFlutterBinding.ensureInitialized();
 }
 
 class MyApp extends StatelessWidget {

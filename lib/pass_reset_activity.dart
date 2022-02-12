@@ -21,9 +21,9 @@ class _PassResetState extends State<PassReset> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        statusBarColor: red
-    ));
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //     statusBarColor: red
+    // ));
   }
   @override
   Widget build(BuildContext context) {

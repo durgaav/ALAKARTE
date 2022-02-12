@@ -4,24 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'home_activity.dart';
 
-class LoginApp extends StatelessWidget {
-  // This widget is the root of your application.
+class LoginApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home:MyLogin(),
-    );
-  }
+  State<LoginApp> createState() => _LoginAppState();
 }
 
-class MyLogin extends StatefulWidget {
-  @override
-  State<MyLogin> createState() => _MyLoginState();
-}
-
-class _MyLoginState extends State<MyLogin> {
+class _LoginAppState extends State<LoginApp> {
 
   Color red = Color(0xffDB90000);
   Color grey = Color(0xff7EABB7);
@@ -32,143 +20,146 @@ class _MyLoginState extends State<MyLogin> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        statusBarColor: red
-    ));
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //     statusBarColor: red
+    // ));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: white,
-      appBar: AppBar(
-        backgroundColor: red,
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: (){
-            Navigator.pop(context);
-          },
-          icon: Icon(CupertinoIcons.back),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home : Scaffold(
+        backgroundColor: white,
+        appBar: AppBar(
+          backgroundColor: red,
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: (){
+              Navigator.pop(context);
+            },
+            icon: Icon(CupertinoIcons.back),
+          ),
+          title: Text('LOGIN'),
         ),
-        title: Text('LOGIN'),
-      ),
-      body:Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.9,
-        child: SingleChildScrollView(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                //Logo image
-                Center(
-                  child: Container(
-                    margin: EdgeInsets.only(top: 30.0),
-                    width: 67,
-                    height: 67,
-                    child: Image(
-                      image: AssetImage("assets/images/logo.png"),
+        body:Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.9,
+          child: SingleChildScrollView(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  //Logo image
+                  Center(
+                    child: Container(
+                      margin: EdgeInsets.only(top: 30.0),
+                      width: 67,
+                      height: 67,
+                      child: Image(
+                        image: AssetImage("assets/images/logo.png"),
+                      ),
                     ),
                   ),
-                ),
-                //edit text Container
-                Container(
-                  padding: EdgeInsets.all(5),
-                  // color: Colors.grey,
-                  height: 300,
-                  margin: EdgeInsets.all(20),
-                  width: double.infinity,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children:<Widget> [
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: "Name",
-                          prefixIcon: Icon(Icons.person_sharp,size: 30,color: black,),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(top: 20),
-                        child: TextField(
+                  //edit text Container
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    // color: Colors.grey,
+                    height: 300,
+                    margin: EdgeInsets.all(20),
+                    width: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children:<Widget> [
+                        TextField(
                           decoration: InputDecoration(
-                              hintText: "Password",
-                              prefixIcon: Icon(Icons.lock_open_rounded,size: 30,color: black,),
-
+                            hintText: "Name",
+                            prefixIcon: Icon(Icons.person_sharp,size: 30,color: black,),
                           ),
                         ),
-                      ),
+                        Container(
+                          margin: EdgeInsets.only(top: 20),
+                          child: TextField(
+                            decoration: InputDecoration(
+                                hintText: "Password",
+                                prefixIcon: Icon(Icons.lock_open_rounded,size: 30,color: black,),
 
-                      //Forgot password
-                      Container(
-                        margin: EdgeInsets.only(top: 20,bottom: 10),
-                        alignment: Alignment.centerLeft,
-                        child: InkWell(
-                           onTap: (){
-                             print('hiiii');
-                             Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgetPassOtp()));
-                           },
-                            child:Text("Forget password?",
-                                style: TextStyle(fontSize: 15,color: black,fontWeight: FontWeight.w400),
                             ),
-                            ),
-                      ),
-
-                      //Buttons ROW
-                      Container(
-                        width: double.infinity,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            //LOGIN BTN
-                            Container(
-                              width: 150,
-                              child: RaisedButton(
-                                color: red,
-                                onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeActivity()));
-                                },
-                                child: Text('LOGIN',style: TextStyle(fontSize: 16,color: white),),
-                              ),
-                            ),
-                            Container(
-                              width: 150,
-                              child: RaisedButton(
-                                color: red,
-                                onPressed: (){print('hiiii');},
-                                child: Text('Login with FACEBOOK',style: TextStyle(fontSize: 10,color: white,),maxLines: 1,),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
 
-                      //Not yet a member
-                      Container(
-                        padding: EdgeInsets.only(top: 15),
-                        width: double.infinity,
-                        child: Row(
-                          children: [
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              child: Text('Not yet a member?',style: TextStyle(fontSize: 15,color: black,fontWeight: FontWeight.w300),)
-                            ),
-                            InkWell(
-                                child:Text(" REGISTER"
-                                  ,style: TextStyle(fontSize: 17,color: black),
+                        //Forgot password
+                        Container(
+                          margin: EdgeInsets.only(top: 20,bottom: 10),
+                          alignment: Alignment.centerLeft,
+                          child: InkWell(
+                             onTap: (){
+                               print('hiiii');
+                               Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgetPassOtp()));
+                             },
+                              child:Text("Forget password?",
+                                  style: TextStyle(fontSize: 15,color: black,fontWeight: FontWeight.w400),
+                              ),
+                              ),
+                        ),
+
+                        //Buttons ROW
+                        Container(
+                          width: double.infinity,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //LOGIN BTN
+                              Container(
+                                width: 150,
+                                child: RaisedButton(
+                                  color: red,
+                                  onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeActivity()));
+                                  },
+                                  child: Text('LOGIN',style: TextStyle(fontSize: 16,color: white),),
                                 ),
-                                onTap: () => setState(()
-                                {
-                                  print('hiiii');
-                                })),
-                          ],
+                              ),
+                              Container(
+                                width: 150,
+                                child: RaisedButton(
+                                  color: red,
+                                  onPressed: (){print('hiiii');},
+                                  child: Text('Login with FACEBOOK',style: TextStyle(fontSize: 10,color: white,),maxLines: 1,),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
 
-                    ],
+                        //Not yet a member
+                        Container(
+                          padding: EdgeInsets.only(top: 15),
+                          width: double.infinity,
+                          child: Row(
+                            children: [
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text('Not yet a member?',style: TextStyle(fontSize: 15,color: black,fontWeight: FontWeight.w300),)
+                              ),
+                              InkWell(
+                                  child:Text(" REGISTER"
+                                    ,style: TextStyle(fontSize: 17,color: black),
+                                  ),
+                                  onTap: () => setState(()
+                                  {
+                                    print('hiiii');
+                                  })),
+                            ],
+                          ),
+                        ),
+
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
+          ),
         ),
       ),
     );

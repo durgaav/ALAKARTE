@@ -35,9 +35,9 @@ class _RegisterPageState extends State<RegisterPage> {
   void initState() {
     // TODO: implement initState
   Color red = Color(0xffDB90000);
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: red
-  ));
+  // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  //     statusBarColor: red
+  // ));
   }
   @override
   Widget build(BuildContext context) {

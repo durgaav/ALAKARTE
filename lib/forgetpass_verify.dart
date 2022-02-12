@@ -23,9 +23,9 @@ class _ForgetPassOtpState extends State<ForgetPassOtp> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        statusBarColor: red
-    ));
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //     statusBarColor: red
+    // ));
   }
   @override
   Widget build(BuildContext context) {

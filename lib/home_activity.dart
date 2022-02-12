@@ -1,13 +1,14 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'food_ctgry_tabview.dart';
+import 'order_confirmation.dart';
 
 class HomeActivity extends StatefulWidget {
+  const HomeActivity({Key? key}) : super(key: key);
   @override
   _HomeActivityState createState() => _HomeActivityState();
 }
@@ -47,8 +48,8 @@ class _HomeActivityState extends State<HomeActivity> {
     // TODO: implement initState
     super.initState();
 
-    SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: red));
+    // SystemChrome.setSystemUIOverlayStyle(
+    //     SystemUiOverlayStyle(statusBarColor: red));
 
    /* _timer = Timer.periodic(Duration(seconds: 5), (Timer timer)
     {
@@ -69,7 +70,7 @@ class _HomeActivityState extends State<HomeActivity> {
   @override
   void dispose() {
     super.dispose();
-    _timer?.cancel();
+    _timer.cancel();
   }
 
   @override
@@ -107,7 +108,8 @@ class _HomeActivityState extends State<HomeActivity> {
             centerTitle: true,
             leading: IconButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>FoodCateTab()));
+                /*Navigator.push(context, MaterialPageRoute(builder: (context)=> Sample()));*/
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderConfirmation()));
               },
               icon: Icon(Icons.menu),
             ),
@@ -116,7 +118,9 @@ class _HomeActivityState extends State<HomeActivity> {
               Stack(
                 children: <Widget>[
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+
+                    },
                     icon: Icon(Icons.shopping_cart),
                     iconSize: 28,
                   ),
@@ -126,7 +130,8 @@ class _HomeActivityState extends State<HomeActivity> {
                     child: Opacity(
                       opacity: 1.0,
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                        },
                         child: CircleAvatar(
                           backgroundColor: grey,
                           radius: 9,

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:alakarte/menuPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -298,6 +299,10 @@ class _HomeActivityState extends State<HomeActivity> {
                           children: <Widget>[
                             Card(
                               child: ListTile(
+                                onTap:(){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MenuPage()));
+
+                                },
                                 trailing: Container(
                                   margin:EdgeInsets.only(left: 55,top: 20),
                                   child: GestureDetector(

@@ -31,12 +31,11 @@ class _ProductDetialsState extends State<ProductDetials> {
         centerTitle: true,
         title: Text('FOODDetials'),
         leading:IconButton(
-          icon: Icon(Icons.menu),
+          icon:Icon(CupertinoIcons.chevron_back),
           onPressed: (){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => CheckoutPage()));
+            Navigator.pop(context);
           },
-        ) ,
+        ),
       ),
       body:  SingleChildScrollView(
         child: Column(

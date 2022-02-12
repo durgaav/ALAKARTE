@@ -1,4 +1,5 @@
 import 'package:alakarte/menucategory.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatefulWidget {
@@ -19,10 +20,11 @@ class _MenuPageState extends State<MenuPage> {
         centerTitle: true,
         title: Text('MENU'),
         leading:IconButton(
-          icon: Icon(Icons.menu),
+          icon:Icon(CupertinoIcons.chevron_back),
           onPressed: (){
-            },
-        ) ,
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Container(
         margin: EdgeInsets.all(15),

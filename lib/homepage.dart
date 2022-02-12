@@ -1,8 +1,14 @@
+import 'package:alakarte/food_ctgry_tabview.dart';
+import 'package:alakarte/home_activity.dart';
 import 'package:alakarte/menuPage.dart';
+import 'package:alakarte/notification_screen.dart';
+import 'package:alakarte/orderhistory.dart';
+import 'package:alakarte/wishlist.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:scroll_app_bar/scroll_app_bar.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -117,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                                         height: 150,
                                         child:GestureDetector(
                                           onTap: (){
-                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>MenuPage()));
+                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeActivity()));
                                           },
                                           child:Card(
                                               child: Row(
@@ -156,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                                                                   ),
                                                                   Expanded(
                                                                     child: Container(
-                                                                        color: red,
+
                                                                         child: SizedBox(
                                                                           height:15,
                                                                           width: 89,
@@ -267,7 +273,9 @@ class _HomePageState extends State<HomePage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     ListTile(
-                                      onTap: (){},
+                                      onTap: (){
+
+                                      },
                                       leading: Icon(Icons.home,color: black,),
                                       title: Text('HOME'),
                                     ),
@@ -276,8 +284,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     ListTile(
                                       onTap: (){
-                                        Navigator.pop(context);
-                                        Navigator.pushReplacement(
+                                        Navigator.push(
                                             context, MaterialPageRoute(builder: (context) => MenuPage()));
                                       },
                                       leading: Icon(Icons.dining_rounded,color: black,),
@@ -285,31 +292,43 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     Divider(height: 2,),
                                     ListTile(
-                                      onTap: (){},
+                                      onTap: (){
+                                      },
                                       leading: Icon(Icons.person,color: black,),
                                       title: Text('PROFILE'),
                                     ),
                                     Divider(height: 2,),
                                     ListTile(
-                                      onTap: (){},
+                                      onTap: (){
+                                        Navigator.push(
+                                            context, MaterialPageRoute(builder: (context) => WishList()));
+                                      },
                                       leading: Icon(Icons.description,color: black,),
                                       title: Text('WISHLIST'),
                                     ),
                                     Divider(height: 2,),
                                     ListTile(
-                                      onTap: (){},
+                                      onTap: (){
+                                        Navigator.push(
+                                            context, MaterialPageRoute(builder: (context) => OrderHistory()));
+                                      },
                                       leading: Icon(Icons.ballot,color: black,),
                                       title: Text('ORDERHISTORY'),
                                     ),
                                     Divider(height: 2,),
                                     ListTile(
-                                      onTap: (){},
+                                      onTap: (){
+
+                                      },
                                       leading: Icon(Icons.people,color: black,),
                                       title: Text('ABOUTUS'),
                                     ),
                                     Divider(height: 2,),
                                     ListTile(
-                                      onTap: (){},
+                                      onTap: (){
+                                        Navigator.push(
+                                            context, MaterialPageRoute(builder: (context) => NotificationScreen()));
+                                      },
                                       leading: Icon(Icons.add_alert_rounded ,color: black,),
                                       title: Text('NOTIFICATION'),
                                     ),

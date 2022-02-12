@@ -1,4 +1,5 @@
 import 'package:alakarte/productdetials.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MenuCategory extends StatefulWidget {
@@ -20,11 +21,11 @@ class _MenuCategoryState extends State<MenuCategory> {
           centerTitle: true,
           title: Text('FOODCATEGORY'),
           leading:IconButton(
-            icon: Icon(Icons.menu),
+            icon:Icon(CupertinoIcons.chevron_back),
             onPressed: (){
-              // showAlert(context);
+              Navigator.pop(context);
             },
-          ) ,
+          ),
         ),
       body: SingleChildScrollView(
         child: Container(

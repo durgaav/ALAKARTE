@@ -69,7 +69,7 @@ class _IntroScreenState extends State<IntroScreen> {
           body:Column(
               children: [
                 Container(
-                    height: MediaQuery.of(context).size.height*0.9,
+                    height: MediaQuery.of(context).size.height*0.8,
                     child:PageView(
                       controller: _controller,
                       onPageChanged: (index){

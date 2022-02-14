@@ -61,134 +61,15 @@ class _HomePageState extends State<HomePage> {
       }});
 
     return Scaffold(
-      drawer: Drawer(
-        child: Container(
-          // width: MediaQuery.of(context).size.width-100,
-          //  height:MediaQuery.of(context).size.height,
-          child: Scaffold(
-            body: Container(
-              child: SafeArea(
-                child: Container(
-                  child: Column(
-                    children: <Widget>[
-                      Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                padding: EdgeInsets.all(10),
-                                height: 100,
-                                width: 110,
-                                child: Image(
-                                  image: AssetImage("assets/images/logo.png"),),
-                              ),
-                             Expanded(
-                               child: Container(
-                                 alignment: Alignment.centerRight,
-                                 child: IconButton(onPressed: (){Navigator.pop(context);}, icon:Icon(Icons.cancel))),
-                               ),
-                ]
-                             ),
-                          Container(
-                            padding: EdgeInsets.only(top: 20),
-                            child:Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                ListTile(
-                                  onTap: (){
-                                  },
-                                  leading: Icon(Icons.home,color: black,),
-                                  title: Text('HOME'),
-                                ),
-                                Divider(
-                                  height: 1,
-                                ),
-                                ListTile(
-                                  onTap: (){
-                                    Navigator.push(
-                                        context, MaterialPageRoute(builder: (context) => MenuPage()));
-                                  },
-                                  leading: Icon(Icons.dining_rounded,color: black,),
-                                  title: Text('MENU'),
-                                ),
-                                Divider(height: 2,),
-                                ListTile(
-                                  onTap: (){
-                                  },
-                                  leading: Icon(Icons.person,color: black,),
-                                  title: Text('PROFILE'),
-                                ),
-                                Divider(height: 2,),
-                                ListTile(
-                                  onTap: (){
-                                    Navigator.push(
-                                        context, MaterialPageRoute(builder: (context) => WishList()));
-                                  },
-                                  leading: Icon(Icons.description,color: black,),
-                                  title: Text('WISHLIST'),
-                                ),
-                                Divider(height: 2,),
-                                ListTile(
-                                  onTap: (){
-                                    Navigator.push(
-                                        context, MaterialPageRoute(builder: (context) => OrderHistory()));
-                                  },
-                                  leading: Icon(Icons.ballot,color: black,),
-                                  title: Text('ORDER HISTORY'),
-                                ),
-                                Divider(height: 2,),
-                                ListTile(
-                                  onTap: (){
-
-                                  },
-                                  leading: Icon(Icons.people,color: black,),
-                                  title: Text('ABOUT US'),
-                                ),
-                                Divider(height: 2,),
-                                ListTile(
-                                  onTap: (){
-                                    Navigator.push(
-                                        context, MaterialPageRoute(builder: (context) => NotificationScreen()));
-                                  },
-                                  leading: Icon(Icons.add_alert_rounded ,color: black,),
-                                  title: Text('NOTIFICATION'),
-                                ),
-                                Divider(height: 2,),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Container(
-                          child:ListTile(
-                            onTap: (){
-                              Navigator.pop(context);
-                              Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) => IntroScreen()));
-                            },
-                            leading: Icon(Icons.logout,color: black,),
-                            title: Text('LOGOUT',style: TextStyle(fontSize: 16),),
-                          )
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
       appBar: AppBar(
         backgroundColor: red,
         centerTitle: true,
         title: Text('HOTELLIST'),
-        /*leading:IconButton(
+        leading:IconButton(
           icon: Icon(Icons.menu),
           onPressed: (){
             _displayDialog(context);},
-        ) ,*/
+        ) ,
       ),
         body:Container(
             height:MediaQuery.of(context).size.height*0.9,
@@ -201,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                         visible: locationView,
                         child: AnimatedContainer(
                           duration: Duration(seconds: 3),
-                          height: 340,
+                          height: 300,
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   fit: BoxFit.fill,
@@ -212,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            color: grey, borderRadius: BorderRadius.circular(6)),
+                            color: Colors.grey[300], borderRadius: BorderRadius.circular(6)),
                         padding: EdgeInsets.only(left: 6,),
                         width: double.infinity,
                         alignment: Alignment.center,
@@ -224,14 +105,16 @@ class _HomePageState extends State<HomePage> {
                               hintText: "Search",
                               border: InputBorder.none,
                               suffixIcon: IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.search,color: white,),
+                                onPressed: () {
+
+                                },
+                                icon: Icon(Icons.search,color: black,),
                               )),
                         ),
                       ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                        child: Text('Hotel List',style: TextStyle(fontSize: 18),),
+                        child: Text('Hotel List',style: TextStyle(fontSize: 19),),
                       ),
                       Container(
                           height:MediaQuery.of(context).size.height*0.75,
@@ -240,34 +123,37 @@ class _HomePageState extends State<HomePage> {
                                   itemCount: 10,
                                   itemBuilder:(BuildContext context, int index) {
                                     return Container(
-                                        height: 150,
+                                        height: 120,
+                                        width: MediaQuery.of(context).size.width,
                                         child:GestureDetector(
                                           onTap: (){
                                             Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeActivity()));
                                           },
                                           child:Card(
                                               child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
                                                   children: [
                                                     Container(
-                                                      width:80,
-                                                      height: 120,
-                                                      child: Image(
-                                                        image: AssetImage('assets/images/listimg3.jpeg'),
+                                                      width:100,
+                                                   //   height: 120,
+                                                      decoration: BoxDecoration(
+                                                        image: DecorationImage(
+                                                            image: new AssetImage('assets/images/parotta.jpg'),fit: BoxFit.cover),
                                                       ),
                                                     ),
                                                     Container(
-                                                      width: 255,
-                                                      padding: EdgeInsets.symmetric(horizontal: 10),
+                                                      width: MediaQuery.of(context).size.width-110,
+                                                      padding: EdgeInsets.symmetric(horizontal: 6,vertical: 6),
                                                       child: Column(
-                                                        mainAxisAlignment: MainAxisAlignment.start,
-                                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                                       // mainAxisAlignment: MainAxisAlignment.center,
+                                                      //  crossAxisAlignment: CrossAxisAlignment.center,
                                                         children: [
                                                           Container(
                                                               child:Row(
                                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                 children: [
                                                                   Container(
-                                                                    child: Text('Hotel Annapoorna',style: TextStyle(fontSize: 13)),
+                                                                    child: Text('Hotel Annapoorna',style: TextStyle(fontSize: 16)),
                                                                   ),
                                                                   Container(
                                                                     padding: EdgeInsets.all(3),
@@ -282,10 +168,9 @@ class _HomePageState extends State<HomePage> {
                                                                   ),
                                                                   Expanded(
                                                                     child: Container(
-
                                                                         child: SizedBox(
                                                                           height:15,
-                                                                          width: 89,
+                                                                         // width: 89,
                                                                           child: CustomPaint(
                                                                             painter: PriceTagPaint(),
                                                                             child: Center(
@@ -341,7 +226,130 @@ class _HomePageState extends State<HomePage> {
   }
 
   _displayDialog(BuildContext context) {
+    showGeneralDialog(
+      context: context,
+      barrierDismissible: false,
+      transitionDuration: Duration(milliseconds: 200),
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return Container(
+          // width: MediaQuery.of(context).size.width-100,
+          //  height:MediaQuery.of(context).size.height,
+          child: Scaffold(
+            body: Container(
+              child: SafeArea(
+                child: Container(
+                        child: Column(
+                          children: <Widget>[
+                            Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(10),
+                                      height: 100,
+                                      width: 110,
+                                      child: Image(
+                                        image: AssetImage("assets/images/logo.png"),),
+                                    ),
+                                   Expanded(
+                                     child: Container(
+                                       alignment: Alignment.centerRight,
+                                       child: IconButton(onPressed: (){Navigator.pop(context);}, icon:Icon(Icons.cancel))),
+                                     ),
+                      ]
+                                   ),
+                                Container(
+                                  padding: EdgeInsets.only(top: 20),
+                                  child:Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      ListTile(
+                                        onTap: (){
+                                        },
+                                        leading: Icon(Icons.home,color: black,),
+                                        title: Text('HOME'),
+                                      ),
+                                      Divider(
+                                        height: 1,
+                                      ),
+                                      ListTile(
+                                        onTap: (){
+                                          Navigator.push(
+                                              context, MaterialPageRoute(builder: (context) => MenuPage()));
+                                        },
+                                        leading: Icon(Icons.dining_rounded,color: black,),
+                                        title: Text('MENU'),
+                                      ),
+                                      Divider(height: 2,),
+                                      ListTile(
+                                        onTap: (){
+                                        },
+                                        leading: Icon(Icons.person,color: black,),
+                                        title: Text('PROFILE'),
+                                      ),
+                                      Divider(height: 2,),
+                                      ListTile(
+                                        onTap: (){
+                                          Navigator.push(
+                                              context, MaterialPageRoute(builder: (context) => WishList()));
+                                        },
+                                        leading: Icon(Icons.description,color: black,),
+                                        title: Text('WISHLIST'),
+                                      ),
+                                      Divider(height: 2,),
+                                      ListTile(
+                                        onTap: (){
+                                          Navigator.push(
+                                              context, MaterialPageRoute(builder: (context) => OrderHistory()));
+                                        },
+                                        leading: Icon(Icons.ballot,color: black,),
+                                        title: Text('ORDER HISTORY'),
+                                      ),
+                                      Divider(height: 2,),
+                                      ListTile(
+                                        onTap: (){
 
+                                        },
+                                        leading: Icon(Icons.people,color: black,),
+                                        title: Text('ABOUT US'),
+                                      ),
+                                      Divider(height: 2,),
+                                      ListTile(
+                                        onTap: (){
+                                          Navigator.push(
+                                              context, MaterialPageRoute(builder: (context) => NotificationScreen()));
+                                        },
+                                        leading: Icon(Icons.add_alert_rounded ,color: black,),
+                                        title: Text('NOTIFICATION'),
+                                      ),
+                                      Divider(height: 2,),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                                child:ListTile(
+                                  onTap: (){
+                                    Navigator.pop(context);
+                                    Navigator.push(
+                                        context, MaterialPageRoute(builder: (context) => IntroScreen()));
+                                  },
+                                  leading: Icon(Icons.logout,color: black,),
+                                  title: Text('LOGOUT',style: TextStyle(fontSize: 16),),
+                                )
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+          ),
+        );
+      },
+    );
   }
 }
 class PriceTagPaint extends CustomPainter {

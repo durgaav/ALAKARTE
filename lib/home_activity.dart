@@ -110,7 +110,7 @@ class _HomeActivityState extends State<HomeActivity> {
             leading: IconButton(
               onPressed: () {
                 /*Navigator.push(context, MaterialPageRoute(builder: (context)=> Sample()));*/
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderConfirmation()));
+                // Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderConfirmation()));
               },
               icon: Icon(Icons.menu),
             ),
@@ -301,7 +301,6 @@ class _HomeActivityState extends State<HomeActivity> {
                               child: ListTile(
                                 onTap:(){
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>MenuPage()));
-
                                 },
                                 trailing: Container(
                                   margin:EdgeInsets.only(left: 55,top: 20),

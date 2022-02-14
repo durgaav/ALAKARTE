@@ -1,3 +1,4 @@
+import 'package:alakarte/order_confirmation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -195,9 +196,12 @@ Row(
                 child: Text('PAY SCECURE',style: TextStyle(color: white),),
                 onPressed: (){
                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>PayMethod()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderConfirmation()));
                 },
               ),
-              IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_outlined,color: white,))
+              IconButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderConfirmation()));
+              }, icon: Icon(Icons.arrow_forward_outlined,color: white,))
             ],
           ),
         );

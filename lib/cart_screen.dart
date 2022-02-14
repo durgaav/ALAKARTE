@@ -1,3 +1,4 @@
+import 'package:alakarte/checkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -233,7 +234,7 @@ class _CartScreenState extends State<CartScreen> {
               Expanded(
                 child:GestureDetector(
                   onTap: (){
-                    /*Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));*/
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> CheckoutPage()));
                   },
                   child: Container(
                     child: Container(
@@ -243,7 +244,7 @@ class _CartScreenState extends State<CartScreen> {
                           Text('Proceed to checkout',style: TextStyle(color: white,fontWeight: FontWeight.bold,fontSize: 13.5)),
                           IconButton(
                               onPressed: (){
-
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> CheckoutPage()));
                               },
                               icon: Icon(Icons.arrow_forward,size: 23.0,color: white,)
                           )

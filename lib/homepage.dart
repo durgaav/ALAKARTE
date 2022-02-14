@@ -1,5 +1,6 @@
 import 'package:alakarte/food_ctgry_tabview.dart';
 import 'package:alakarte/home_activity.dart';
+import 'package:alakarte/introscreen.dart';
 import 'package:alakarte/menuPage.dart';
 import 'package:alakarte/notification_screen.dart';
 import 'package:alakarte/orderhistory.dart';
@@ -60,15 +61,134 @@ class _HomePageState extends State<HomePage> {
       }});
 
     return Scaffold(
+      drawer: Drawer(
+        child: Container(
+          // width: MediaQuery.of(context).size.width-100,
+          //  height:MediaQuery.of(context).size.height,
+          child: Scaffold(
+            body: Container(
+              child: SafeArea(
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                height: 100,
+                                width: 110,
+                                child: Image(
+                                  image: AssetImage("assets/images/logo.png"),),
+                              ),
+                             Expanded(
+                               child: Container(
+                                 alignment: Alignment.centerRight,
+                                 child: IconButton(onPressed: (){Navigator.pop(context);}, icon:Icon(Icons.cancel))),
+                               ),
+                ]
+                             ),
+                          Container(
+                            padding: EdgeInsets.only(top: 20),
+                            child:Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                ListTile(
+                                  onTap: (){
+                                  },
+                                  leading: Icon(Icons.home,color: black,),
+                                  title: Text('HOME'),
+                                ),
+                                Divider(
+                                  height: 1,
+                                ),
+                                ListTile(
+                                  onTap: (){
+                                    Navigator.push(
+                                        context, MaterialPageRoute(builder: (context) => MenuPage()));
+                                  },
+                                  leading: Icon(Icons.dining_rounded,color: black,),
+                                  title: Text('MENU'),
+                                ),
+                                Divider(height: 2,),
+                                ListTile(
+                                  onTap: (){
+                                  },
+                                  leading: Icon(Icons.person,color: black,),
+                                  title: Text('PROFILE'),
+                                ),
+                                Divider(height: 2,),
+                                ListTile(
+                                  onTap: (){
+                                    Navigator.push(
+                                        context, MaterialPageRoute(builder: (context) => WishList()));
+                                  },
+                                  leading: Icon(Icons.description,color: black,),
+                                  title: Text('WISHLIST'),
+                                ),
+                                Divider(height: 2,),
+                                ListTile(
+                                  onTap: (){
+                                    Navigator.push(
+                                        context, MaterialPageRoute(builder: (context) => OrderHistory()));
+                                  },
+                                  leading: Icon(Icons.ballot,color: black,),
+                                  title: Text('ORDER HISTORY'),
+                                ),
+                                Divider(height: 2,),
+                                ListTile(
+                                  onTap: (){
+
+                                  },
+                                  leading: Icon(Icons.people,color: black,),
+                                  title: Text('ABOUT US'),
+                                ),
+                                Divider(height: 2,),
+                                ListTile(
+                                  onTap: (){
+                                    Navigator.push(
+                                        context, MaterialPageRoute(builder: (context) => NotificationScreen()));
+                                  },
+                                  leading: Icon(Icons.add_alert_rounded ,color: black,),
+                                  title: Text('NOTIFICATION'),
+                                ),
+                                Divider(height: 2,),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                          child:ListTile(
+                            onTap: (){
+                              Navigator.pop(context);
+                              Navigator.push(
+                                  context, MaterialPageRoute(builder: (context) => IntroScreen()));
+                            },
+                            leading: Icon(Icons.logout,color: black,),
+                            title: Text('LOGOUT',style: TextStyle(fontSize: 16),),
+                          )
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: red,
         centerTitle: true,
         title: Text('HOTELLIST'),
-        leading:IconButton(
+        /*leading:IconButton(
           icon: Icon(Icons.menu),
           onPressed: (){
             _displayDialog(context);},
-        ) ,
+        ) ,*/
       ),
         body:Container(
             height:MediaQuery.of(context).size.height*0.9,
@@ -221,139 +341,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   _displayDialog(BuildContext context) {
-    showGeneralDialog(
-      context: context,
-      barrierDismissible: false,
-      transitionDuration: Duration(milliseconds: 200),
-      // transitionBuilder: (context, animation, secondaryAnimation, child) {
-      //   return FadeTransition(
-      //     opacity: animation,
-      //     child: ScaleTransition(
-      //       scale: animation,
-      //       child: child,
-      //     ),
-      //   );
-      // },
-      pageBuilder: (context, animation, secondaryAnimation) {
-      return Container(
-       // width: MediaQuery.of(context).size.width-100,
-       //  height:MediaQuery.of(context).size.height,
-        child: Scaffold(
-          body: Container(
-            child: SafeArea(
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                // width: MediaQuery.of(context).size.width-100,
-                // height:MediaQuery.of(context).size.height,
-                child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(10),
-                                    height: 100,
-                                    width: 110,
-                                    child: Image(
-                                      image: AssetImage("assets/images/logo.png"),),
-                                  ),
-                                  Positioned(
-                                    bottom: 10,
-                                      right: 10,
-                                      child: IconButton(onPressed: (){Navigator.pop(context);}, icon:Icon(Icons.cancel)))
-                                ],
-                              ),
-                              Container(
-                                padding: EdgeInsets.only(top: 20),
-                                child:Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ListTile(
-                                      onTap: (){
 
-                                      },
-                                      leading: Icon(Icons.home,color: black,),
-                                      title: Text('HOME'),
-                                    ),
-                                    Divider(
-                                      height: 1,
-                                    ),
-                                    ListTile(
-                                      onTap: (){
-                                        Navigator.push(
-                                            context, MaterialPageRoute(builder: (context) => MenuPage()));
-                                      },
-                                      leading: Icon(Icons.dining_rounded,color: black,),
-                                      title: Text('MENU'),
-                                    ),
-                                    Divider(height: 2,),
-                                    ListTile(
-                                      onTap: (){
-                                      },
-                                      leading: Icon(Icons.person,color: black,),
-                                      title: Text('PROFILE'),
-                                    ),
-                                    Divider(height: 2,),
-                                    ListTile(
-                                      onTap: (){
-                                        Navigator.push(
-                                            context, MaterialPageRoute(builder: (context) => WishList()));
-                                      },
-                                      leading: Icon(Icons.description,color: black,),
-                                      title: Text('WISHLIST'),
-                                    ),
-                                    Divider(height: 2,),
-                                    ListTile(
-                                      onTap: (){
-                                        Navigator.push(
-                                            context, MaterialPageRoute(builder: (context) => OrderHistory()));
-                                      },
-                                      leading: Icon(Icons.ballot,color: black,),
-                                      title: Text('ORDERHISTORY'),
-                                    ),
-                                    Divider(height: 2,),
-                                    ListTile(
-                                      onTap: (){
-
-                                      },
-                                      leading: Icon(Icons.people,color: black,),
-                                      title: Text('ABOUTUS'),
-                                    ),
-                                    Divider(height: 2,),
-                                    ListTile(
-                                      onTap: (){
-                                        Navigator.push(
-                                            context, MaterialPageRoute(builder: (context) => NotificationScreen()));
-                                      },
-                                      leading: Icon(Icons.add_alert_rounded ,color: black,),
-                                      title: Text('NOTIFICATION'),
-                                    ),
-                                    Divider(height: 2,),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                              child:ListTile(
-                                onTap: (){},
-                                leading: Icon(Icons.logout,color: black,),
-                                title: Text('LOGOUT',style: TextStyle(fontSize: 16),),
-                              )
-                          ),
-                        ],
-                      ),
-              ),
-            ),
-          ),
-        ),
-      );
-      },
-    );
   }
 }
 class PriceTagPaint extends CustomPainter {

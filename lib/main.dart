@@ -1,3 +1,5 @@
+// @dart=2.9
+import 'package:alakarte/homepage.dart';
 import 'package:alakarte/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -41,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      body: IntroScreen() // This trailing comma makes auto-formatting nicer for build methods.
+      body: HomePage() // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

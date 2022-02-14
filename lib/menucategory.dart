@@ -1,3 +1,4 @@
+import 'package:alakarte/food_ctgry_tabview.dart';
 import 'package:alakarte/productdetials.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class _MenuCategoryState extends State<MenuCategory> {
             itemBuilder: (BuildContext context, int index) {
               return new GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductDetials()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FoodCateTab()));
                   },
                   child:Card(
                   child: Column(

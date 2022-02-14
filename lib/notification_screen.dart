@@ -22,10 +22,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
           backgroundColor: red,
           centerTitle: true,
           leading: IconButton(
-            onPressed: () {
-              /*Navigator.push(context, MaterialPageRoute(builder: (context)=> Sample()));*/
+            onPressed: (){
+              Navigator.of(context).pop(context);
             },
-            icon: Icon(Icons.menu),
+            icon: Icon(CupertinoIcons.back),
           ),
           title: Text('NOTIFICATIONS'),
         ),

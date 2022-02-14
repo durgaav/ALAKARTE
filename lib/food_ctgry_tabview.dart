@@ -1,4 +1,5 @@
 
+import 'package:alakarte/productdetials.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'cart_screen.dart';
@@ -90,7 +91,7 @@ class _FoodCateTabState extends State<FoodCateTab> {
                         children: <Widget>[
                           IconButton(
                             onPressed: () {
-
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
                             },
                             icon: Icon(Icons.shopping_cart),
                             iconSize: 28,
@@ -211,7 +212,8 @@ class _FoodCateTabState extends State<FoodCateTab> {
                                           elevation: 2,
                                           child: ListTile(
                                             onTap: (){
-
+                                              Navigator.push(
+                                                  context, MaterialPageRoute(builder: (context) => ProductDetials()));
                                             },
                                             trailing: addedCart[index] != 0
                                                 ? Container(
@@ -376,148 +378,154 @@ class _FoodCateTabState extends State<FoodCateTab> {
                                               mainAxisSpacing: 20),
                                       itemCount: foodList.length,
                                       itemBuilder: (context, index) {
-                                        return Card(
-                                          elevation: 2,
-                                          child: Container(
-                                            margin: EdgeInsets.all(7),
-                                            child:Column(
-                                              children: <Widget>[
-                                                Row(
-                                                  children:<Widget> [
-                                                    Padding(
-                                                      padding:
-                                                      const EdgeInsets.all(3),
-                                                      child: Text(
-                                                          '${foodList[index].toString()}'),
-                                                    ),
-                                                    Expanded(
-                                                        child: Container(
-                                                          alignment: Alignment.centerRight,
-                                                          child: Container(
-                                                            margin: EdgeInsets.all(3),
-                                                            decoration: BoxDecoration(
-                                                                color: white,
-                                                                border: Border.all()),
-                                                            padding: EdgeInsets.all(3.5),
-                                                            child: CircleAvatar(
-                                                              radius: 3.5,
-                                                              backgroundColor: Colors.green,
-                                                            ),
-                                                          ),
-                                                        )
-                                                    ),
-                                                  ],
-                                                ),
-                                                Container(
-                                                  child: Text(
-                                                    'This is sample description helloo how are you uuuuuuuuuuuuuu',
-                                                    style: TextStyle(
-                                                        color: grey,
-                                                        fontSize: 11,
-                                                        fontWeight:
-                                                        FontWeight.w900),
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  child: Row(
+                                        return GestureDetector(
+                                          onTap: (){
+                                            Navigator.push(
+                                                context, MaterialPageRoute(builder: (context) => ProductDetials()));
+                                          },
+                                          child: Card(
+                                            elevation: 2,
+                                            child: Container(
+                                              margin: EdgeInsets.all(7),
+                                              child:Column(
+                                                children: <Widget>[
+                                                  Row(
                                                     children:<Widget> [
                                                       Padding(
                                                         padding:
                                                         const EdgeInsets.all(3),
                                                         child: Text(
-                                                            'RS: 75'),
+                                                            '${foodList[index].toString()}'),
                                                       ),
                                                       Expanded(
-                                                          child: addedCart[index] != 0 ?
-                                                          Container(
+                                                          child: Container(
                                                             alignment: Alignment.centerRight,
                                                             child: Container(
-                                                              color: red,
-                                                              width: 65,
-                                                              height: 30,
-                                                              child: Row(
-                                                                mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                                children: <Widget>[
-                                                                  GestureDetector(
-                                                                      onTap: () {
-                                                                        print("-");
-                                                                        setState(() {
-                                                                          addedCart[index] = addedCart[index] - 1;
-                                                                          cartItemCount--;
-                                                                          if (cartItemCount == 0) {
-                                                                            opacity = 0.0;
-                                                                            bottomSheetVisible = false;
-                                                                          }
-                                                                        });
-                                                                      },
-                                                                      child: Icon(
-                                                                        Icons.remove,
-                                                                        color: white,
-                                                                      )),
-                                                                  Text(
-                                                                    '${addedCart[index]}',
-                                                                    style: TextStyle(
-                                                                        color: white,
-                                                                        fontSize: 14),
-                                                                  ),
-                                                                  GestureDetector(
-                                                                      onTap: () {
-                                                                        setState(() {
-                                                                          bottomSheetVisible = true;
-                                                                          addedCart[index] =
-                                                                              addedCart[
-                                                                              index] +
-                                                                                  1;
-                                                                          cartItemCount++;
-                                                                        });
-                                                                      },
-                                                                      child: Icon(
-                                                                        Icons.add,
-                                                                        color: white,
-                                                                      )),
-                                                                ],
+                                                              margin: EdgeInsets.all(3),
+                                                              decoration: BoxDecoration(
+                                                                  color: white,
+                                                                  border: Border.all()),
+                                                              padding: EdgeInsets.all(3.5),
+                                                              child: CircleAvatar(
+                                                                radius: 3.5,
+                                                                backgroundColor: Colors.green,
                                                               ),
                                                             ),
-                                                          ):
-                                                          Container(
-                                                            alignment: Alignment.centerRight,
-                                                            child: Container(
-                                                              width: 65,
-                                                              height: 30,
-                                                              child: RaisedButton(
-                                                                color: red,
-                                                                onPressed: () {
-                                                                  setState(() {
-                                                                    print(foodList);
-                                                                    cartItemCount++;
-                                                                    addedCart[index] =
-                                                                        addedCart[index] +
-                                                                            1;
-                                                                    if (cartItemCount > 0) {
-                                                                      bottomSheetVisible = true;
-                                                                      opacity = 1.0;
-                                                                    } else {
-                                                                      opacity = 0.0;
-                                                                      bottomSheetVisible = false;
-                                                                    }
-                                                                  });
-                                                                },
-                                                                child: Text(
-                                                                  "ADD",
-                                                                  style: TextStyle(
-                                                                      color: white,
-                                                                      fontSize: 12),
-                                                                ),
-                                                              ),
-                                                            )
                                                           )
                                                       ),
                                                     ],
                                                   ),
-                                                ),
-                                              ],
+                                                  Container(
+                                                    child: Text(
+                                                      'This is sample description helloo how are you uuuuuuuuuuuuuu',
+                                                      style: TextStyle(
+                                                          color: grey,
+                                                          fontSize: 11,
+                                                          fontWeight:
+                                                          FontWeight.w900),
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    child: Row(
+                                                      children:<Widget> [
+                                                        Padding(
+                                                          padding:
+                                                          const EdgeInsets.all(3),
+                                                          child: Text(
+                                                              'RS: 75'),
+                                                        ),
+                                                        Expanded(
+                                                            child: addedCart[index] != 0 ?
+                                                            Container(
+                                                              alignment: Alignment.centerRight,
+                                                              child: Container(
+                                                                color: red,
+                                                                width: 65,
+                                                                height: 30,
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                                  children: <Widget>[
+                                                                    GestureDetector(
+                                                                        onTap: () {
+                                                                          print("-");
+                                                                          setState(() {
+                                                                            addedCart[index] = addedCart[index] - 1;
+                                                                            cartItemCount--;
+                                                                            if (cartItemCount == 0) {
+                                                                              opacity = 0.0;
+                                                                              bottomSheetVisible = false;
+                                                                            }
+                                                                          });
+                                                                        },
+                                                                        child: Icon(
+                                                                          Icons.remove,
+                                                                          color: white,
+                                                                        )),
+                                                                    Text(
+                                                                      '${addedCart[index]}',
+                                                                      style: TextStyle(
+                                                                          color: white,
+                                                                          fontSize: 14),
+                                                                    ),
+                                                                    GestureDetector(
+                                                                        onTap: () {
+                                                                          setState(() {
+                                                                            bottomSheetVisible = true;
+                                                                            addedCart[index] =
+                                                                                addedCart[
+                                                                                index] +
+                                                                                    1;
+                                                                            cartItemCount++;
+                                                                          });
+                                                                        },
+                                                                        child: Icon(
+                                                                          Icons.add,
+                                                                          color: white,
+                                                                        )),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ):
+                                                            Container(
+                                                              alignment: Alignment.centerRight,
+                                                              child: Container(
+                                                                width: 65,
+                                                                height: 30,
+                                                                child: RaisedButton(
+                                                                  color: red,
+                                                                  onPressed: () {
+                                                                    setState(() {
+                                                                      print(foodList);
+                                                                      cartItemCount++;
+                                                                      addedCart[index] =
+                                                                          addedCart[index] +
+                                                                              1;
+                                                                      if (cartItemCount > 0) {
+                                                                        bottomSheetVisible = true;
+                                                                        opacity = 1.0;
+                                                                      } else {
+                                                                        opacity = 0.0;
+                                                                        bottomSheetVisible = false;
+                                                                      }
+                                                                    });
+                                                                  },
+                                                                  child: Text(
+                                                                    "ADD",
+                                                                    style: TextStyle(
+                                                                        color: white,
+                                                                        fontSize: 12),
+                                                                  ),
+                                                                ),
+                                                              )
+                                                            )
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         );

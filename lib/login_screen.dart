@@ -1,4 +1,5 @@
 import 'package:alakarte/forgetpass_verify.dart';
+import 'package:alakarte/registerpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -124,7 +125,10 @@ class _LoginAppState extends State<LoginApp> {
                                 width: 150,
                                 child: RaisedButton(
                                   color: red,
-                                  onPressed: (){print('hiiii');},
+                                  onPressed: (){
+                                    print('hiiii');
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeActivity()));
+                                  },
                                   child: Text('Login with FACEBOOK',style: TextStyle(fontSize: 10,color: white,),maxLines: 1,),
                                 ),
                               ),
@@ -148,6 +152,7 @@ class _LoginAppState extends State<LoginApp> {
                                   ),
                                   onTap: () => setState(()
                                   {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=> RegisterPage()));
                                     print('hiiii');
                                   })),
                             ],

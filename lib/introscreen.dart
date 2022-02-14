@@ -40,7 +40,7 @@ class _IntroScreenState extends State<IntroScreen> {
      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
          statusBarColor: red
      ));
-    /*_timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
       if (slideIndex < 2) {
         slideIndex++;
       } else {
@@ -52,7 +52,7 @@ class _IntroScreenState extends State<IntroScreen> {
         duration: Duration(milliseconds: 350),
         curve: Curves.easeIn,
       );
-    });*/
+    });
   }
 
   @override

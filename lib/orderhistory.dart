@@ -18,49 +18,38 @@ class _OrderHistoryState extends State<OrderHistory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
-        backgroundColor: red,
-        centerTitle: true,
-        title: Text('ORDERHISTORY'),
-        leading: IconButton(
-          icon:Icon(CupertinoIcons.chevron_back),
-          onPressed: (){
-            Navigator.pop(context);
-          },
-        ),
-      ),
       body: Container(
         child:  ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return Container(
-              padding: EdgeInsets.only(left: 5,right: 5),
-              child: Card(
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(child: Text('Chicken Briyani',style: TextStyle(fontSize: 18),),),
-                          Container(child: Text('(order placed)',style: TextStyle(fontSize: 13),),)
-                        ],
-                      ),
-                      SizedBox(height: 10,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(child: Text('Order number-B144',style: TextStyle(fontSize: 13),),),
-                          Container(child: Text('12-02-2022',style: TextStyle(fontSize: 15),),)
-                        ],
-                      )
-                    ],
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return Container(
+                padding: EdgeInsets.only(left: 5,right: 5),
+                child: Card(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(child: Text('Chicken Briyani',style: TextStyle(fontSize: 18),),),
+                            Container(child: Text('(order placed)',style: TextStyle(fontSize: 13),),)
+                          ],
+                        ),
+                        SizedBox(height: 10,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(child: Text('Order number-B144',style: TextStyle(fontSize: 13),),),
+                            Container(child: Text('12-02-2022',style: TextStyle(fontSize: 15),),)
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            );
-          }
+              );
+            }
         ),
       ),
 

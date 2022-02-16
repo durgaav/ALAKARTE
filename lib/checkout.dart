@@ -24,132 +24,131 @@ class _CheckoutPageState extends State<CheckoutPage> {
   bool _switchvalue = false;
   bool _switch = false;
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar:AppBar(
-        backgroundColor: red,
-        centerTitle: true,
-        title: Text('CHECKOUT'),
-        leading: IconButton(
-          icon:Icon(CupertinoIcons.chevron_back),
-          onPressed: (){
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Form(
-                  key:  _formKey,
-                  child:Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-
-                      TextFormField(
-                       // controller: name,
-                        decoration: const InputDecoration(
-                          border: UnderlineInputBorder(),
-                          hintText: 'Flatno',
-                          labelText: 'Flatno'
-                        ),
-                      //  validator: uname,
-                      ),
-
-                      TextFormField(
-                      //  controller:phno,
-                        decoration: const InputDecoration(
-                          border: UnderlineInputBorder(),
-                          hintText: 'Address',
-                            labelText: 'Address'
-
-                        ),
-                       // validator: number,
-                        // maxLength: 10,
-                      ),
-
-                      TextFormField(
-                      //  controller: email,
-                        decoration: const InputDecoration(
-                          border: UnderlineInputBorder(),
-                          hintText: 'Landmark',
-                            labelText: 'Landmark'
-
-                        ),
-                       // validator: mail,
-                      ),
-
-                      TextFormField(
-                      //  controller: pass,
-                        decoration: const InputDecoration(
-                          border: UnderlineInputBorder(),
-                          hintText: 'Pincode',
-                            labelText: 'Pincode'
-
-                        ),
-                      //  validator: password,
-                      ),
-
-                      TextFormField(
-                       // controller: pass,
-                        decoration: const InputDecoration(
-                          border: UnderlineInputBorder(),
-                          hintText: 'Mobileno',
-                            labelText: 'Mobileno'
-
-                        ),
-                       // validator: password,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        height: 200,
-                        width: MediaQuery.of(context).size.width,
-                        color: Colors.grey[300],
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Column(
-                          children: [
-                            Container(padding:EdgeInsets.only(top: 10),child: Center(child: Text('PaymentOption',style: TextStyle(fontSize: 16),),)),
-                            Divider(color: black,),
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(child: Text('COD'),),
-                              Switch(value: _switchvalue, onChanged: (bool value){
-                                setState(() =>
-                                  _switchvalue = value);
-                              })
-                            ],
-                          ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(child: Text('CARD(Debit or Credit)'),),
-                                Switch(value: _switch, onChanged: (bool value){
-                                  setState(() =>
-                                  _switch = value);
-                                })
-                              ],
-                            )
-
-                          ],
-                        ),
-                      )
-                    ],
-                  )
-              )
-            ],
+    return  Scaffold(
+        appBar:AppBar(
+          backgroundColor: red,
+          centerTitle: true,
+          title: Text('CHECKOUT'),
+          leading: IconButton(
+            icon:Icon(CupertinoIcons.chevron_back),
+            onPressed: (){
+              Navigator.pop(context);
+            },
           ),
         ),
-      ),
-      bottomSheet: bottomSheet(),
-    );
+        body: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Form(
+                    key:  _formKey,
+                    child:Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+
+                        TextFormField(
+                         // controller: name,
+                          decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintText: 'Flatno',
+                            labelText: 'Flatno'
+                          ),
+                        //  validator: uname,
+                        ),
+
+                        TextFormField(
+                        //  controller:phno,
+                          decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintText: 'Address',
+                              labelText: 'Address'
+
+                          ),
+                         // validator: number,
+                          // maxLength: 10,
+                        ),
+
+                        TextFormField(
+                        //  controller: email,
+                          decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintText: 'Landmark',
+                              labelText: 'Landmark'
+
+                          ),
+                         // validator: mail,
+                        ),
+
+                        TextFormField(
+                        //  controller: pass,
+                          decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintText: 'Pincode',
+                              labelText: 'Pincode'
+
+                          ),
+                        //  validator: password,
+                        ),
+
+                        TextFormField(
+                         // controller: pass,
+                          decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            hintText: 'Mobileno',
+                              labelText: 'Mobileno'
+
+                          ),
+                         // validator: password,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        // Container(
+                        //   height: 200,
+                        //   width: MediaQuery.of(context).size.width,
+                        //   color: Colors.grey[300],
+                        //   padding: EdgeInsets.symmetric(horizontal: 20),
+                        //   child: Column(
+                        //     children: [
+                        //       Container(padding:EdgeInsets.only(top: 10),child: Center(child: Text('PaymentOption',style: TextStyle(fontSize: 16),),)),
+                        //       Divider(color: black,),
+                        //
+                        //     Row(
+                        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //       children: [
+                        //         Container(child: Text('COD'),),
+                        //         Switch(value: _switchvalue, onChanged: (bool value){
+                        //           setState(() =>
+                        //             _switchvalue = value);
+                        //         })
+                        //       ],
+                        //     ),
+                        //       Row(
+                        //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //         children: [
+                        //           Container(child: Text('CARD(Debit or Credit)'),),
+                        //           Switch(value: _switch, onChanged: (bool value){
+                        //             setState(() =>
+                        //             _switch = value);
+                        //           })
+                        //         ],
+                        //       )
+                        //
+                        //     ],
+                        //   ),
+                        // )
+                      ],
+                    )
+                )
+              ],
+            ),
+          ),
+        ),
+        bottomSheet: bottomSheet(),
+      );
   }
 
 
@@ -173,7 +172,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderSummary()));
                   },
                 ),
-              IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_outlined,color: white,))
+              IconButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderSummary()));
+              }, icon: Icon(Icons.arrow_forward_outlined,color: white,))
 
             ],
           ),
@@ -183,5 +184,4 @@ class _CheckoutPageState extends State<CheckoutPage> {
       return Container(child: Text(''),);
     }
   }
-
 }

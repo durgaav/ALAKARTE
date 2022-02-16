@@ -1,10 +1,8 @@
 // @dart=2.9
+
 import 'package:alakarte/homepage.dart';
-import 'package:alakarte/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'introscreen.dart';
 
 void main() {
   runApp(MyApp());

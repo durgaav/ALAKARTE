@@ -150,7 +150,9 @@ class _OrderSummaryState extends State<OrderSummary> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>PayMethod()));
                 },
               ),
-              IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_outlined,color: white,))
+              IconButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>PayMethod()));
+              }, icon: Icon(Icons.arrow_forward_outlined,color: white,))
             ],
           ),
         );

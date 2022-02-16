@@ -1,5 +1,4 @@
 import 'package:alakarte/food_ctgry_tabview.dart';
-import 'package:alakarte/productdetials.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,17 +16,11 @@ class _MenuCategoryState extends State<MenuCategory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:AppBar(
-          backgroundColor: red,
-          centerTitle: true,
-          title: Text('FOODCATEGORY'),
-          leading:IconButton(
-            icon:Icon(CupertinoIcons.chevron_back),
-            onPressed: (){
-              Navigator.pop(context);
-            },
-          ),
-        ),
+      appBar:AppBar(
+        backgroundColor: red,
+        centerTitle: true,
+        title: Text('FOODCATEGORY'),
+      ),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.all(15),
@@ -44,21 +37,21 @@ class _MenuCategoryState extends State<MenuCategory> {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>FoodCateTab()));
                   },
                   child:Card(
-                  child: Column(
-                    children: [
-                      Container(
-                        color: red,
-                        height:110,
-                        child: Image(
-                             image: new AssetImage('assets/images/food1.jpeg'),fit: BoxFit.cover,
+                    child: Column(
+                      children: [
+                        Container(
+                          color: red,
+                          height:110,
+                          child: Image(
+                            image: new AssetImage('assets/images/food1.jpeg'),fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        child: Text('Variety rice'),
-                      )
-                    ],
-                  ),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Text('Variety rice'),
+                        )
+                      ],
+                    ),
 
                   )
               );

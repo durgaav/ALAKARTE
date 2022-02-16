@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:alakarte/forgetpass_verify.dart';
 
 class PassReset extends StatefulWidget {
   const PassReset({Key? key}) : super(key: key);
@@ -21,9 +19,6 @@ class _PassResetState extends State<PassReset> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    //     statusBarColor: red
-    // ));
   }
   @override
   Widget build(BuildContext context) {

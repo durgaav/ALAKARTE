@@ -18,14 +18,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home:WillPopScope(
-          onWillPop: () async{
-            print("poppp");
-            return false;
-          },
-          child: Scaffold(
+    return Scaffold(
               bottomSheet: bottomSheet(),
               appBar: AppBar(
                 backgroundColor: red,
@@ -212,9 +205,8 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 ),
               ),
-            ),
-        ),
-      );
+
+            );
   }
   Widget bottomSheet(){
     if (bottomSheetVisible){

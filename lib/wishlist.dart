@@ -61,17 +61,6 @@ class _WishListState extends State<WishList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
-        backgroundColor: red,
-        centerTitle: true,
-        title: Text('WHISLIST'),
-        leading: IconButton(
-          icon:Icon(CupertinoIcons.chevron_back),
-          onPressed: (){
-            Navigator.pop(context);
-          },
-        ),
-      ),
       body: Container(
         child:ListView.builder(
             itemCount: 8,

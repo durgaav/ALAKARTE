@@ -1,4 +1,3 @@
-import 'package:alakarte/checkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +21,71 @@ class _ProductDetialsState extends State<ProductDetials> {
     "hellooo"
   ];
   TextEditingController controller = new TextEditingController();
+  List<Tab> tabs = <Tab>[
+    Tab(text: "Breakfast",),
+    Tab(text: "Lunch"),
+    Tab(text: "Brunch"),
+    Tab(text: "Dinner"),
+    Tab(text: "Teatime"),
+  ];
+
+  List foodItems = [
+    "assets/images/idly.jpg",
+    "assets/images/biriyani.jpg",
+    "assets/images/parotta.jpg",
+    "assets/images/dosa.jpg"
+  ];
+
+  List foodList = [
+    "idly",
+    "idly",
+    "idly",
+    "idly",
+    "idly",
+    "idly",
+    "Dosa",
+  ];
+
+  List<int> addedCart = [];
+
+  bool listVisible = true;
+  bool gridVisible = false;
+  bool bottomSheetVisible = true;
+
+  String tabText = "";
+  int cartItemCount = 0;
+  double opacity = 0.0;
+
+  List rate = [20, 10, 15, 35];
+
+  int slideIndex = 0;
+
+  @override
+  void initState() {
+    setState(() {
+      tabText = tabs[0].text!;
+      if (cartItemCount <= 0) {
+        opacity = 0.0;
+        bottomSheetVisible = false;
+      } else {
+        opacity = 1.0;
+      }
+      //Getting item count from added food
+      for (int i = 0; i <= foodList.length; i++) {
+        addedCart.add(0);
+      }
+    });
+
+    print(tabText);
+    print(tabs);
+    print(cartItemCount);
+    print(tabs.length);
+
+
+    // TODO: implement initState
+    super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +93,7 @@ class _ProductDetialsState extends State<ProductDetials> {
       appBar:AppBar(
         backgroundColor: red,
         centerTitle: true,
-        title: Text('FOODDetials'),
+        title: Text('FoodDetials'),
         leading:IconButton(
           icon:Icon(CupertinoIcons.chevron_back),
           onPressed: (){
@@ -108,14 +172,14 @@ class _ProductDetialsState extends State<ProductDetials> {
                               GestureDetector(
                                   onTap: () {
                                     print("-");
-                                    // setState(() {
-                                    //   addedCart[index] = addedCart[index] - 1;
-                                    //   cartItemCount--;
-                                    //   if (cartItemCount == 0) {
-                                    //     opacity = 0.0;
-                                    //     bottomSheetVisible = false;
-                                    //   }
-                                    // });
+                                    setState(() {
+                                     // addedCart[index] = addedCart[index] - 1;
+                                      cartItemCount--;
+                                      if (cartItemCount == 0) {
+                                        opacity = 0.0;
+                                        bottomSheetVisible = false;
+                                      }
+                                    });
                                   },
                                   child: Icon(
                                     Icons.remove,
@@ -129,14 +193,11 @@ class _ProductDetialsState extends State<ProductDetials> {
                               ),
                               GestureDetector(
                                   onTap: () {
-                                    // setState(() {
-                                    //   bottomSheetVisible = true;
-                                    //   addedCart[index] =
-                                    //       addedCart[
-                                    //       index] +
-                                    //           1;
-                                    //   cartItemCount++;
-                                    // });
+                                    setState(() {
+                                      bottomSheetVisible = true;
+                                    //  addedCart[index] = addedCart[index] + 1;
+                                      cartItemCount++;
+                                    });
                                   },
                                   child: Icon(
                                     Icons.add,
@@ -159,7 +220,7 @@ class _ProductDetialsState extends State<ProductDetials> {
                             VerticalDivider(thickness: 1,),
                             Container(
                               child: GestureDetector(
-                                  onTap: (){},
+                                 // onTap: (){},
                                   child: Row(
                                     children: [
                                       Text('4.4'),
@@ -275,7 +336,7 @@ class _ProductDetialsState extends State<ProductDetials> {
                       children:<Widget> [
                         Container(
                           margin: EdgeInsets.all(10),
-                          color: grey,
+                          color:Colors.grey[300] ,
                           height: 100,
                           child: TextFormField(
                             controller: controller,
@@ -311,12 +372,6 @@ class _ProductDetialsState extends State<ProductDetials> {
                 ],
               ),
             )
-
-
-
-
-
-
 
           ],
         ),

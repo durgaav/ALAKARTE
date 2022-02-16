@@ -195,7 +195,6 @@ Row(
               TextButton(
                 child: Text('PAY SCECURE',style: TextStyle(color: white),),
                 onPressed: (){
-                 // Navigator.push(context, MaterialPageRoute(builder: (context)=>PayMethod()));
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderConfirmation()));
                 },
               ),

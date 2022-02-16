@@ -76,6 +76,7 @@ class _ProductDetialsState extends State<ProductDetials> {
       }
     });
 
+
     print(tabText);
     print(tabs);
     print(cartItemCount);
@@ -164,46 +165,84 @@ class _ProductDetialsState extends State<ProductDetials> {
                         Container(child: Text('Rs:75.00/-',style: TextStyle(fontSize: 17),),),
                         Container(
                           color: red,
-                          child: Row(
-                            mainAxisAlignment:
-                            MainAxisAlignment
-                                .spaceBetween,
-                            children: <Widget>[
-                              GestureDetector(
-                                  onTap: () {
-                                    print("-");
-                                    setState(() {
-                                     // addedCart[index] = addedCart[index] - 1;
-                                      cartItemCount--;
-                                      if (cartItemCount == 0) {
-                                        opacity = 0.0;
-                                        bottomSheetVisible = false;
-                                      }
-                                    });
-                                  },
-                                  child: Icon(
-                                    Icons.remove,
-                                    color: white,
-                                  )),
-                              Text(
-                                '3',
+                          child:addedCart!= 0
+                              ? Container(
+                            margin:
+                            EdgeInsets.only(top: 17),
+                            color: red,
+                            width: 65,
+                            height: 30,
+                            child: Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment
+                                  .spaceBetween,
+                              children: <Widget>[
+                                GestureDetector(
+                                    onTap: () {
+                                      print("-");
+                                      setState(() {
+                                        addedCart = addedCart;
+                                        cartItemCount--;
+                                        if (cartItemCount == 0) {
+                                          opacity = 0.0;
+                                          bottomSheetVisible = false;
+                                        }
+                                      });
+                                    },
+                                    child: Icon(
+                                      Icons.remove,
+                                      color: white,
+                                    )),
+                                Text(
+                                  '${addedCart}',
+                                  style: TextStyle(
+                                      color: white,
+                                      fontSize: 14),
+                                ),
+                                GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        bottomSheetVisible = true;
+                                        addedCart =
+                                            addedCart;
+                                        cartItemCount++;
+                                      });
+                                    },
+                                    child: Icon(
+                                      Icons.add,
+                                      color: white,
+                                    )),
+                              ],
+                            ),
+                          )
+                              : Container(
+                            margin:
+                            EdgeInsets.only(top: 17),
+                            width: 65,
+                            height: 30,
+                            child: RaisedButton(
+                              color: red,
+                              onPressed: () {
+                                setState(() {
+                                  print(foodList);
+                                  cartItemCount++;
+                                  addedCart = addedCart;
+                                  if (cartItemCount > 0) {
+                                    opacity = 1.0;
+                                    bottomSheetVisible = true;
+                                  } else {
+                                    opacity = 0.0;
+                                    bottomSheetVisible = false;
+                                  }
+                                });
+                              },
+                              child: Text(
+                                "ADD",
                                 style: TextStyle(
                                     color: white,
-                                    fontSize: 16),
+                                    fontSize: 12),
                               ),
-                              GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      bottomSheetVisible = true;
-                                    //  addedCart[index] = addedCart[index] + 1;
-                                      cartItemCount++;
-                                    });
-                                  },
-                                  child: Icon(
-                                    Icons.add,
-                                    color: white,
-                                  )),
-                            ],
+                            ),
                           ),
                         )
                       ],
